@@ -69,6 +69,15 @@ describe('Listing cities on /cities', function(){
 
     });
 
+    it('Validates city and desctiption', function(done){
+      request(app)
+        .post('/cities')
+        .send('name=&desctiption=')
+        .expect(400, done);
+
+
+    })
+
     describe('deleting cities', function(){
       before(function(){
       client.hset('cities', 'Banana', 'a tasty fruit');
@@ -80,7 +89,7 @@ describe('Listing cities on /cities', function(){
         request(app)
           .delete('/cities/Banana')
           .expect(204, done);
-        
+
       });
 
 
