@@ -9,7 +9,8 @@ app.use (express.static('public'));
 var cities = {
   'Lotopia': 'some description',
   'Caspiana':'description',
-  'Indigo': 'description'};
+  'Indigo': 'description',
+  'Sayville': "home town"};
 
 
 
