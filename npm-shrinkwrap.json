@@ -297,6 +297,11 @@
           "resolved": "https://registry.npmjs.org/nan/-/nan-1.8.4.tgz"
         }
       }
+    },
+    "ejs": {
+      "version": "2.3.1",
+      "from": "ejs@",
+      "resolved": "https://registry.npmjs.org/ejs/-/ejs-2.3.1.tgz"
     }
   }
 }
