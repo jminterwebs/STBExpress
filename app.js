@@ -6,3 +6,5 @@ var cities = require('./routes/cities');
 app.use('/cities', cities);
 
 module.exports = app;
+
+console.log("testing");
