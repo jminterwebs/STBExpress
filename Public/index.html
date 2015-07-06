@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="" ng-app="Cityapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="styles/bootstrap.css"/>
+    <title></title>
+</head>
+
+<body >
+    <h2>City App</h2>
+    Cityapp
+    
+    <div>
+    <input ng-model="Test"/>
+        {{Test}}
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    <form ng-controller="CityCreateController">
+        
+    <fieldset class="City-group">
+        <label for="City">Enter City:</label>
+        <input for="City-group" name="City" id="City" type="text" ng-model="city.city">
+    </fieldset>
+
+    
+    <fieldset class="City-group">
+        <label for="City">Enter Description:</label>
+        <input for="City-group" name="desc" id="desc" type="text" ng-model="city.desc">
+    </fieldset>
+    
+    
+    <input type="submit" class="btn btn-default" ng-click="saveCity(city)"/>
+    </form>
+        
+        
+    <div ng-controller="CityIndexController">
+        <h1 ng-repeat="city in cities">{{city.city}}</h1>
+    </div>
+    
+    
+    
+     
+    <!-- VENDOR -->
+    <script src="javascript/vendor/angular.js"></script>
+    <script src="javascript/vendor/angular-resource.js"></script>
+    <script src="javascript/vendor/angular-route.js"></script>
+    <script src="javascript/vendor/jquery-2.1.4.js"></script>
+    
+    <!-- APPS -->
+    <script src="javascript/app.js"></script>
+    
+    <!-- Service -->
+    <script src="javascript/services/city.js"></script>
+    
+    <!-- Controllers -->
+    <script src="javascript/controller/CityIndexController.js"></script>
+    <script src="javascript/controller/CityCreateController.js"></script>
+</body>
+</html>
