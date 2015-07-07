@@ -3,51 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/bootstrap-theme.css"/>
-    <link rel="stylesheet" href="styles/bootstrap.css"/>
+   
+    <link rel="stylesheet" href="styles/style.css"/>
     <title></title>
 </head>
 
 <body >
-    <h2>City App</h2>
-    Cityapp
-    
-    <div>
-    <input ng-model="Test"/>
-        {{Test}}
-        
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
+    <h1>Cities</h1>
    
     
-    <form ng-controller="CityCreateController">
-        
-    <fieldset class="City-group">
-        <label for="City">Enter City:</label>
-        <input for="City-group" name="City" id="City" type="text" ng-model="city.city">
-    </fieldset>
-
-    
-    <fieldset class="City-group">
-        <label for="City">Enter Description:</label>
-        <input for="City-group" name="desc" id="desc" type="text" ng-model="city.desc">
-    </fieldset>
-    
-    
+     <form ng-controller="CityCreateController">
+    <legend> New City</legend>     
+        <input for="City-group" name="City" id="City" type="text" ng-model="city.city" placeholder="City Name">
+        <input for="City-group" name="desc" id="desc" type="text" ng-model="city.desc" placeholder="Description">
     <input type="submit" class="btn btn-default" ng-click="saveCity(city)"/>
     </form>
         
         
-    <div ng-controller="CityIndexController">
-        <h1 ng-repeat="city in cities">{{city.city}}</h1>
-    </div>
+    
+        <ul ng-controller="CityIndexController"  class="city-list">
+            <li ng-repeat="city in cities">{{city.city}}</li>   
+        </ul>
+    
     
     
     
