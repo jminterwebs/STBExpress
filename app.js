@@ -23,6 +23,7 @@ var create = function(city){
 lastId = lastId +1;
 city.id = lastId;
     
+    
 cities.push(city);
 return city};
 
@@ -32,8 +33,15 @@ res.send(JSON.parse(JSON.stringify(cities)));
 });
 
 app.post('/city', function(req,res){
-res.json(create(req.body));
-    
+ var newCity = req.body;
+ if(!newCity.city || !newCity.desc){
+    res.sendStatus(400);
+ } else {
+   res.json(create(newCity));  
+ }
+ //res.json(create(req.body));
+ //console.log(newCity.city);
+
     
     
 });
