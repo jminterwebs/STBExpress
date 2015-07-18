@@ -28,9 +28,7 @@ cities.push(city);
 return city};
 
 
-app.get('/city', function(req,res){
-res.send(JSON.parse(JSON.stringify(cities)));   
-});
+
 
 app.post('/city', function(req,res){
  var newCity = req.body;
@@ -40,12 +38,14 @@ app.post('/city', function(req,res){
    res.json(create(newCity));  
  }
  //res.json(create(req.body));
- //console.log(newCity.city);
+ console.log(cities.length);
 
     
     
 });
-
+app.get('/city', function(req,res){
+res.send(JSON.parse(JSON.stringify(cities)));   
+});
  
 app.listen(port, function(){
 

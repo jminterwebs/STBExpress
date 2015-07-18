@@ -9,10 +9,8 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
         url: '/city',
         data: city})
     .success( function(data, status, headers, config){
-    console.log('work');
-    console.log(status);
-    console.log(data);
     
+   
         
     }).
     error(function(data,status,headers,config){
@@ -24,6 +22,7 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
     
          
     };
+    
 
     return true;
 });
