@@ -34,12 +34,11 @@ app.post('/city', function(req,res){
  var newCity = req.body;
  if(!newCity.city || !newCity.desc){
     res.sendStatus(400);
- } else {
-   res.json(create(newCity));  
- }
- //res.json(create(req.body));
+    
+ } else{
+    res.json(create(newCity));
+ };
  console.log(cities.length);
-
     
     
 });
@@ -53,4 +52,10 @@ console.log("Listening on port " + port);
 
 });
         
+app.get('/city/:id', function(req,res){
+   var cityId = parseInt(req.param('id'), 10);
+    res.json((cityId) || {});
+    
+});
+    
         

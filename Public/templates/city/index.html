@@ -1,0 +1,20 @@
+    <h1>Cities</h1>
+   
+    <div class="alert">
+    Invalid City
+  </div> 
+
+<form ng-controller="CityCreateController">
+    <legend> New City</legend>     
+        <input for="City-group" name="City" id="City" type="text" ng-model="city.city" placeholder="City Name">
+        <input for="City-group" name="desc" id="desc" type="text" ng-model="city.desc" placeholder="Description">
+    <input type="submit" class="btn btn-default" ng-click="saveCity(city)"/>
+    </form>
+        
+        
+    
+    <ul ng-controller="CityIndexController"  class="city-list">
+        <li ng-repeat="city in cities">
+        <a href="#">
+            {{city.city}}</a></li> 
+    </ul>
