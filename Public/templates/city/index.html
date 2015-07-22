@@ -15,6 +15,6 @@
     
     <ul ng-controller="CityIndexController"  class="city-list">
         <li ng-repeat="city in cities">
-        <a href="#">
+        <a href="#/city/{{city.city}}">
             {{city.city}}</a></li> 
     </ul>

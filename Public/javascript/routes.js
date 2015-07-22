@@ -4,7 +4,7 @@ angular.module('Cityapp').config(function($routeProvider){
         templateUrl: "/templates/city/index.html",
         
  })
-    .when('/city/:id', {
+    .when('/city/:city', {
         templateUrl: "/templates/city/city.html",
         controller: "CityShowController"
  });

@@ -1,3 +1,5 @@
 angular.module('Cityapp').controller('CityShowController', function(City, $scope, $routeParams, $location){
-    $scope.cities = City.get({id: $routeParams.id});   
+  $scope.city = City.get({city: $routeParams.city});   
+    console.log($scope.city);
+    
 });

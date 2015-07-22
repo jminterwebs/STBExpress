@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var express = require('express');
 var app = express();
 var bodyparser = require('body-parser');
@@ -27,6 +28,10 @@ city.id = lastId;
 cities.push(city);
 return city};
 
+var buildCity = function(){
+  return JSON.parse(JSON.stringify(cities));   
+};
+
 
 
 
@@ -43,7 +48,22 @@ app.post('/city', function(req,res){
     
 });
 app.get('/city', function(req,res){
-res.send(JSON.parse(JSON.stringify(cities)));   
+res.send(buildCity());   
+});
+
+
+app.get('/city/:city', function(req,res){
+    
+    
+    
+    var cityFind = function(cityRoute){
+        return _.find(buildCity(), function(city){
+        return city.city === cityRoute; 
+        
+    });
+    }; 
+    res.json(cityFind(req.params.city));
+    console.log(req.params.city);
 });
  
 app.listen(port, function(){
@@ -52,10 +72,6 @@ console.log("Listening on port " + port);
 
 });
         
-app.get('/city/:id', function(req,res){
-   var cityId = parseInt(req.param('id'), 10);
-    res.json((cityId) || {});
-    
-});
+
     
         
