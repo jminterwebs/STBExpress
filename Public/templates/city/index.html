@@ -4,16 +4,16 @@
     Invalid City
   </div> 
 
-<form ng-controller="CityCreateController">
+<form ng-submit="saveCity(city)">
     <legend> New City</legend>     
         <input for="City-group" name="City" id="City" type="text" ng-model="city.city" placeholder="City Name">
         <input for="City-group" name="desc" id="desc" type="text" ng-model="city.desc" placeholder="Description">
-    <input type="submit" class="btn btn-default" ng-click="saveCity(city)"/>
+    <input type="submit" class="btn btn-default"/>
     </form>
         
         
     
-    <ul ng-controller="CityIndexController"  class="city-list">
+    <ul  class="city-list">
         <li ng-repeat="city in cities">
         <a href="#/city/{{city.city}}">
             {{city.city}}</a></li> 

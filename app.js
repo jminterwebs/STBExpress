@@ -36,14 +36,15 @@ var buildCity = function(){
 
 
 app.post('/city', function(req,res){
- var newCity = req.body;
+ 
+var newCity = req.body;
  if(!newCity.city || !newCity.desc){
     res.sendStatus(400);
     
  } else{
     res.json(create(newCity));
  };
- console.log(cities.length);
+ console.log(req.body);
     
     
 });
