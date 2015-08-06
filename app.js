@@ -29,7 +29,7 @@ cities.push(city);
 return city};
 
 var buildCity = function(){
-  return JSON.parse(JSON.stringify(cities));   
+  return JSON.parse(JSON.stringify(cities));
 };
 
 
@@ -74,5 +74,4 @@ console.log("Listening on port " + port);
 });
         
 
-    
-        
+
