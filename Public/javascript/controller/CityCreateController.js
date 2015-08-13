@@ -1,14 +1,7 @@
 angular.module('Cityapp').controller('CityCreateController', function(City, $scope, $http){
     $scope.cities = City.query();
-   
-  /*
-    $scope.createCity = function(){
-        $scope.cities.push({city: $scope.city.city,
-                            desc: $scope.city.desc});
-        console.log($scope.cities.length);
-    }
-*/
-    $scope.city = new City();
+    console.log($scope.cities);
+
    
         
     $scope.saveCity = function(city){

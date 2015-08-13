@@ -25,6 +25,7 @@ var CityDB = require('../Schema/CitySchema');
     module.exports.list = function(req, res) {
       CityDB.find({}, function(err, results) {
             res.json(results);
+
         });
     };
 

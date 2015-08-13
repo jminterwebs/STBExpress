@@ -14,30 +14,7 @@ app.use(bodyparser.json());
 
 
 
-
-var buildCity = function(req, res) {
-      CityDb.find({}, function(err, results) {
-            res.json(results);
-        });
-    };
-
-
 app.post('/city', cityController.create );
-/*
-app.post('/city', function(req,res){
-
-var newCity = req.body;
- if(!newCity.city || !newCity.desc){
-    res.sendStatus(400);
-
- } else{
-    res.json(create(newCity));
- };
- console.log(req.body);
-
-
-});
-*/
 
 app.get('/city', cityController.list);
 
@@ -55,12 +32,15 @@ var routeCity = function(req, res) {
 app.get('/city/:city', function(req,res){
 
      CityDb.find({city: req.params.city}, function(err, results) {
-            res.json(results);
+            res.send(results);
             console.log(results);
+            console.log(typeof(results));
+            console.log(req.params.city);
         });
 
-    console.log(req.params.city);
 });
+
+
 
 app.listen(port, function(){
 
