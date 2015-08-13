@@ -1,18 +1,32 @@
 var CityDB = require('../Schema/CitySchema');
 
-    module.exports.create = function(res,req){
-        var cityDb = new CityDB(req.body);
-        cityDb.save();
-    }
 
-    /*
-    var newCity = req.body;
+
+    module.exports.create = function(req,res){
+
+       var cityDb = new CityDB(req.body);
+
+        var newCity = req.body;
  if(!newCity.city || !newCity.desc){
     res.sendStatus(400);
 
  } else{
-    res.json(create(newCity));
+    cityDb.save (
+            CityDB.find({}, function(err,results) {
+                res.json(results);
+            })
+        );
  };
- console.log(req.body);
 
- */
+
+
+    };
+
+    module.exports.list = function(req, res) {
+      CityDB.find({}, function(err, results) {
+            res.json(results);
+        });
+    };
+
+
+

@@ -9,33 +9,20 @@ var port = process.env.PORT || 3333;
 
 mongoose.connect('mongodb://localhost:27017/citydb');
 
-
 app.use(express.static('../Public'));
 app.use(bodyparser.json());
 
-var cities = [{
-               'city': 'Sayville',
-               'desc': 'Home'},
-              {
-               'city': 'Springfield',
-               'desc': 'Homer'}
-             ];
 
 
 
-var create = function(city){
-
-CityDb.save();
-
-}
-
-var buildCity = function(){
- return JSON.parse(JSON.stringify(cities));
-
-};
+var buildCity = function(req, res) {
+      CityDb.find({}, function(err, results) {
+            res.json(results);
+        });
+    };
 
 
-app.post('/city', cityController.create);
+app.post('/city', cityController.create );
 /*
 app.post('/city', function(req,res){
 
@@ -51,22 +38,27 @@ var newCity = req.body;
 
 });
 */
-app.get('/city', function(req,res){
-res.send(buildCity());
-});
+
+app.get('/city', cityController.list);
+
+/**********
+  find value keys based on URL
+**********/
+
+var routeCity = function(req, res) {
+      CityDb.find({city: req.params.city}, function(err, results) {
+            res.json(results);
+        });
+    };
 
 
 app.get('/city/:city', function(req,res){
 
+     CityDb.find({city: req.params.city}, function(err, results) {
+            res.json(results);
+            console.log(results);
+        });
 
-
-    var cityFind = function(cityRoute){
-        return _.find(buildCity(), function(city){
-        return city.city === cityRoute;
-
-    });
-    };
-    res.json(cityFind(req.params.city));
     console.log(req.params.city);
 });
 

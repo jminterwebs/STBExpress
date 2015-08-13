@@ -8,10 +8,6 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
         console.log($scope.cities.length);
     }
 */
-    
-  
-    
-    
     $scope.city = new City();
    
         
@@ -22,9 +18,10 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
         data: city})
     .success( function(data, status, headers, config){
    
-       $scope.cities.push({city: $scope.city.city,
-                            desc: $scope.city.desc});
-     console.log(data.city);
+    $scope.cities.push({city: $scope.city.city,
+                        desc: $scope.city.desc});
+
+
      
     }).
     error(function(data,status,headers,config){

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 
   module.exports = mongoose.model('CityDB', {
-      name: String,
+      city: String,
       desc: String
 
   });
