@@ -16,7 +16,7 @@
     <ul  class="city-list">
 
         <li ng-repeat="city in cities">
-            <span><a href="#">
+            <span><a href="" ng-click="deleteNote(this)">
             <img src="../images/delete.png" width="15px"</a></span>
         <a href="#/city/{{city.city}}">
          {{city.city}}</a></li>

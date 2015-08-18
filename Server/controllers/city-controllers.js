@@ -18,8 +18,6 @@ var CityDB = require('../Schema/CitySchema');
         );
  };
 
-
-
     };
 
     module.exports.list = function(req, res) {

@@ -2,7 +2,30 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
     $scope.cities = City.query();
     console.log($scope.cities);
 
+   // $scope.deleteNote = function(city){confirm(city.city.city);};
    
+
+     $scope.deleteNote = function(city){
+         console.log("hi");
+
+          $http({
+        method: 'DELETE',
+        url: '/city',
+        data: city.city,
+        headers:{"Content-Type": "application/json;charset=utf-8"} })
+    .success( function(data, status, headers, config){
+    console.log(data);
+    }).
+    error(function(data,status,headers,config){
+
+    jQuery('.alert').show();
+    console.log('nope');
+    })
+
+
+
+    };
+
         
     $scope.saveCity = function(city){
     $http({
