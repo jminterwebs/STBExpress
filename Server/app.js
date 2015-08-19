@@ -23,7 +23,6 @@ var routeCity = function(req, res) {
     };
 
 app.get('/city/:city', function(req,res){
-
      CityDb.find({city: req.params.city}, function(err, results) {
             res.send(results);
             console.log(results);
