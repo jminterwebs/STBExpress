@@ -6,21 +6,19 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
    
 
      $scope.deleteNote = function(city){
-         console.log("hi");
 
-          $http({
+
+         $http({
         method: 'DELETE',
         url: '/city',
         data: city.city,
-        headers:{"Content-Type": "application/json;charset=utf-8"} })
-    .success( function(data, status, headers, config){
-    console.log(data);
-    }).
-    error(function(data,status,headers,config){
+        headers:{"Content-Type": "application/json;charset=utf-8"} });
 
-    jQuery('.alert').show();
-    console.log('nope');
-    })
+
+         var index = city.city;
+
+
+         $scope.cities.splice(index, 1);
 
 
 
@@ -46,5 +44,5 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
     console.log('nope');
     });
     };
-   
+
 });

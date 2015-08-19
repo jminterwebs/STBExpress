@@ -2,9 +2,4 @@ angular.module('Cityapp').controller('CityShowController', function(City, $scope
     $scope.city = City.query({city: $routeParams.city, isArray: true});
     console.log($scope.city);
 
-
-
-
-
-
 });
