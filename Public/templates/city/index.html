@@ -1,0 +1,23 @@
+    <h1>Cities</h1>
+   
+    <div class="alert">
+    Invalid City
+  </div> 
+
+<form ng-submit="saveCity(city)">
+    <legend> New City</legend>     
+        <input for="City-group" name="City" id="City" type="text" ng-model="city.city" placeholder="City Name">
+        <input for="City-group" name="desc" id="desc" type="text" ng-model="city.desc" placeholder="Description">
+    <input type="submit" class="btn btn-default"/>
+    </form>
+        
+        
+    
+    <ul  class="city-list">
+
+        <li ng-repeat="city in cities">
+            <span><a class="tester" href="" ng-click="deleteNote(this)">
+            <img src="../images/delete.png" width="15px"</a></span>
+        <a href="#/city/{{city.city}}">
+         {{city.city}}</a></li>
+    </ul>
