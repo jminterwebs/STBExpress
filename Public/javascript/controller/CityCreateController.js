@@ -16,10 +16,8 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
 
 
          var index = city.city;
-
-
          $scope.cities.splice(index, 1);
-
+         console.log(index);
 
 
     };
