@@ -4,8 +4,8 @@ var express = require('express');
 var app = express();
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
-var CityDb = require('./Schema/CitySchema');
-var cityController = require('./controllers/city-controllers');
+var CityDb = require('./Server/Schema/CitySchema');
+var cityController = require('./Server/controllers/city-controllers');
 var port = process.env.PORT || 3333;
 
 var mongoPro = "mongodb://heroku_m32qvs1h:f4r6rpl2nlrb0msn7598bouo97@ds035653.mongolab.com:35653/heroku_m32qvs1h";
