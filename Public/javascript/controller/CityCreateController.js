@@ -15,7 +15,7 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
         headers:{"Content-Type": "application/json;charset=utf-8"} });
 
 
-         var index = city.city;
+         var index = $scope.cities.indexOf(city.city);
          $scope.cities.splice(index, 1);
          console.log(index);
 
