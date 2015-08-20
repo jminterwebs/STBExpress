@@ -8,9 +8,9 @@ var CityDb = require('./Server/Schema/CitySchema');
 var cityController = require('./Server/controllers/city-controllers');
 var port = process.env.PORT || 3333;
 
-var mongoPro = "mongodb://heroku_m32qvs1h:f4r6rpl2nlrb0msn7598bouo97@ds035653.mongolab.com:35653/heroku_m32qvs1h";
+var mongoPro = "mongodb://heroku_rkzx8bcz:j7qq3peas9tgt5dds2oqd8dsg@ds035583.mongolab.com:35583/heroku_rkzx8bcz";
 var mongoDev = 'mongodb://localhost:27017/citydb';
-mongoose.connect( mongoDev);
+mongoose.connect( mongoPro);
 
 app.use(express.static(__dirname +'/Public'));
 app.use(bodyparser.json());
