@@ -17,7 +17,34 @@ app.use(bodyparser.json());
 
 app.post('/city', cityController.create );
 app.get('/city', cityController.list);
- 
+
+/**********  find value keys based on URL *******/
+var routeCity = function(req, res) {
+      CityDb.find({city: req.params.city}, function(err, results) {
+            res.json(results);
+        });
+    };
+
+app.get('/city/:city', function(req,res){
+     CityDb.find({city: req.params.city}, function(err, results) {
+            res.send(results);
+            console.log(results);
+            console.log(typeof(results));
+            console.log(req.params.city);
+        });
+
+});
+
+app.delete('/city', function(req,res){
+
+    CityDb.findOneAndRemove({city: req.body.city}, function(err, results){
+        if (err) throw err;
+
+    });
+
+
+});
+
 app.listen(port, function(){
 console.log("Listening on port " + port);
 
