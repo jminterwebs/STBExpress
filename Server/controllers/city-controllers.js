@@ -27,5 +27,30 @@ var CityDB = require('../Schema/CitySchema');
         });
     };
 
+    module.exports.delete = function(req,res){
+
+  CityDB.findOneAndRemove({city: req.body.city}, function(err, results){
+
+    if (err){
+      res.status(500).send({error: err});
+      // Assume you are going to catch this somewhere...
+      throw err;
+    }
+
+    else
+      res.status(200).send();
+
+  });
+
+};
+
+    module.exports.cityDesc =  function(req,res){
+     CityDB.find({city: req.params.city}, function(err, results) {
+            res.send(results);
+            console.log(results);
+
+        });
+
+    };
 
 

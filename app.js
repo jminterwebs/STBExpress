@@ -17,40 +17,8 @@ app.use(bodyparser.json());
 
 app.post('/city', cityController.create );
 app.get('/city', cityController.list);
-
-/**********  find value keys based on URL *******/
-var routeCity = function(req, res) {
-      CityDb.find({city: req.params.city}, function(err, results) {
-            res.json(results);
-        });
-    };
-
-app.get('/city/:city', function(req,res){
-     CityDb.find({city: req.body.city}, function(err, results) {
-            res.send(results);
-            console.log(results);
-           
-        });
-
-});
-
-app.delete('/city', function(req,res){
-
-  CityDb.findOneAndRemove({city: req.body.city}, function(err, results){
-
-    if (err){
-      res.status(500).send({error: err});
-      // Assume you are going to catch this somewhere...
-      throw err;
-    }
-
-    else
-      res.status(200).send();
-
-  });
-
-    
-});
+app.get('/city/:city', cityController.cityDesc);
+app.delete('/city', cityController.delete);
 
 app.listen(port, function(){
 console.log("Listening on port " + port);
