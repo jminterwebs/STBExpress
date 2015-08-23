@@ -26,23 +26,30 @@ var routeCity = function(req, res) {
     };
 
 app.get('/city/:city', function(req,res){
-     CityDb.find({city: req.params.city}, function(err, results) {
+     CityDb.find({city: req.body.city}, function(err, results) {
             res.send(results);
             console.log(results);
-            console.log(typeof(results));
-            console.log(req.params.city);
+           
         });
 
 });
 
 app.delete('/city', function(req,res){
 
-    CityDb.findOneAndRemove({city: req.body.city}, function(err, results){
-        if (err) throw err;
+  CityDb.findOneAndRemove({city: req.body.city}, function(err, results){
 
-    });
+    if (err){
+      res.status(500).send({error: err});
+      // Assume you are going to catch this somewhere...
+      throw err;
+    }
 
+    else
+      res.status(200).send();
 
+  });
+
+    
 });
 
 app.listen(port, function(){
