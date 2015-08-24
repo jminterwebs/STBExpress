@@ -25,15 +25,6 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
     alert("Something bad happened");
   })
 
-  .finally(function (){
-    // Re-enable the button.
-    city.deleting = false;
-  })
-
-  // Disable the delete button and show a loading animation based on
-  // this value (use `ng-disabled`).
-  city.deleting = true;
-
 
 };     
     $scope.saveCity = function(city){
@@ -43,16 +34,16 @@ angular.module('Cityapp').controller('CityCreateController', function(City, $sco
         data: city})
     .success( function(data, status, headers, config){
    
-    $scope.cities.push({city: $scope.city.city,
-                        desc: $scope.city.desc});
+        $scope.cities.push({city: $scope.city.city,
+                            desc: $scope.city.desc});
 
 
      
-    }).
-    error(function(data,status,headers,config){
+    })
+    .error(function(data,status,headers,config){
    
-    jQuery('.alert').show();
-    console.log('nope');
+        jQuery('.alert').show();
+
     });
     };
 
